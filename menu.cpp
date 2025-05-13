@@ -2,10 +2,12 @@
 #include <conio.h>
 using namespace std;
 
+int data[6];
+int jumlahData = 6;
 
 void dMenu(){
 system("cls");
-cout<<"Aplikasi Exhange sort"<<"\n";       
+cout<<"Aplikasi Exchange sort"<<"\n";       
 cout<<"1. Memasukkan data"<<"\n";            
 cout<<"2. Menampilkan data"<<"\n";            
 cout<<"3. Sorting"<<"\n";           
@@ -21,12 +23,49 @@ cout<<"hallo saya menu "<<pesan;
 getch();
 }
 
+void inputdata(){
+  system("cls");
+  cout << "Masukkan 6 angka:" << endl;
+  for (int i = 0; i < jumlahData; i++) {
+      cout << "Data ke-" << i + 1 << " = ";
+      cin >> data[i];
+  }
+  getch();
+}
+
+void outputdata(){
+  system("cls");
+  cout << "Outputnya: ";
+    for (int i = 0; i < jumlahData; i++) {
+        cout << data[i] << " ";
+    }
+  getch();
+}
+
+void sorting(){
+  system("cls");
+   for (int i = 0; i < jumlahData - 1; i++) {
+    for (int j = i + 1; j < jumlahData; j++) {
+        if (data[i] < data[j]) {
+            int tukar = data[i];
+            data[i] = data[j];
+            data[j] = tukar;
+        }
+    }
+}
+
+cout << "\nSorting:\n";
+for (int i = 0; i < jumlahData; i++) {
+    cout << data[i] << " ";
+}
+  getch();
+}
+
 void sepatahKata(){
   system("cls");
   cout <<"Kalo cape istirahat \n @k4mall";
   getch();
 }
-
 
 int main() {
 char pl;
@@ -38,14 +77,14 @@ do
   {
    case '1':
     /* code */
-    mPertama("pertama");
+    inputdata();
     break;
    case '2':
-    mPertama("ke- dua");
+    outputdata();
     /* code */ 
     break;  
    case '3':
-    mPertama("ke- tiga");
+    sorting();
     /* code */
     break;  
    case '4':
